@@ -8,7 +8,7 @@
 - If some src/ change, recalculate
 - Ignore external and local deps, look only for workspace deps
 
-### pros:
+### pros
 
 - calculates the real deps (orphaned files are not taken into account)
 - works with any type of file or module
@@ -33,14 +33,14 @@
 
 ## cons
 
-- not sure if it works with cjs modules
-- will report orphaned files (but they can be excluded with configuration?)
+- not sure if it works with cjs modules (it works)
+- will report orphaned files (but it can be run recursively in entrypoint mode or files can be excluded with configuration)
 
 ## TODO
 
 - [ ] poc of esbuild
 - [ ] poc of parse-imports
 - [ ] poc of ts-morph
-- [ ] all pocs with cjs
+- [x] all pocs with cjs
 - [ ] all pocs with css
 - [ ] benchmark
