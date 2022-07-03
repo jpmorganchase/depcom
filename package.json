@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "esbuild": "^0.14.48",
+    "fs-extra": "^10.1.0",
+    "parse-imports": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "ts-node": "^10.8.2"
+  },
+  "scripts": {
+    "esbuild": "ts-node esbuild.ts",
+    "parse": "ts-node parseImports.ts"
+  },
+  "type": "module"
+}
