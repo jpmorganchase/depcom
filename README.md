@@ -18,6 +18,7 @@
 
 - Still use esbuild to translate in memory to esm
 - Use https://github.com/TomerAberbach/parse-imports
+- If in entrypoint mode, can follow local imports to get next file
 - Save each file hash
 - If some file in src changes, recalculate
 
