@@ -27,10 +27,7 @@ async function getPackageDependencies(files: string[]) {
       if (!dependenciesPerFile[file]) {
         dependenciesPerFile[file] = [];
       }
-      dependenciesPerFile[file].push({
-        dependency: importData.moduleSpecifier.value,
-        dynamic: importData.isDynamicImport,
-      });
+      dependenciesPerFile[file].push(importData.moduleSpecifier.value);
       if (!dependencies[importData.moduleSpecifier.value]) {
         dependencies[importData.moduleSpecifier.value] = { files: [] };
       }
@@ -56,4 +53,4 @@ console.time("getDependencies");
 const result = await getDependencies(cliArgs[0]);
 console.timeEnd("getDependencies");
 
-console.log(JSON.stringify(result.dependencies, null, 2));
+// console.log(JSON.stringify(result.dependencies, null, 2));

@@ -1,12 +1,15 @@
 {
   "dependencies": {
+    "@babel/parser": "^7.18.6",
     "esbuild": "^0.14.48",
     "fs-extra": "^10.1.0",
     "globby": "^13.1.2",
-    "parse-imports": "^1.1.0"
+    "parse-imports": "^1.1.0",
+    "strip-comments": "^2.0.1"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
+    "@types/strip-comments": "^2.0.1",
     "ts-node": "^10.8.2"
   },
   "scripts": {

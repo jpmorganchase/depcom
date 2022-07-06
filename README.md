@@ -1,3 +1,3 @@
 # depcom
 
-Get all the dependencies from the source of a package.
+Get all the dependencies from the sources of a package.
