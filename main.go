@@ -14,10 +14,6 @@ import (
 	"github.com/mattn/go-zglob"
 )
 
-func isDependencyLocal(dependency string) bool {
-	return (strings.HasPrefix(dependency, ".") || strings.HasPrefix(dependency, "/"))
-}
-
 func parseFile(filename string) {
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -55,6 +51,8 @@ func parseFile(filename string) {
 		}
 	}
 
+	options.Mode = 2
+
 	fmt.Printf("-----> PARSING: [%v ext: %v]\n", filename, ext)
 
 	ast, pass := js_parser.Parse(log, test.SourceForTest(string(data)), js_parser.OptionsFromConfig(&options))
@@ -70,9 +68,13 @@ func parseFile(filename string) {
 	}
 }
 
+func isDependencyLocal(dependency string) bool {
+	return (strings.HasPrefix(dependency, ".") || strings.HasPrefix(dependency, "/"))
+}
+
 func globMatches(dirPath string) {
 	// TODO: exclude node_modules if possible (maybe manually?)
-	matches, err := zglob.Glob(dirPath + "/**/*.{tsx,jsx,ts,js,css}")
+	matches, err := zglob.Glob(dirPath + "/**/*.{tsx,jsx,mjs,cjs,ts,js,css}")
 
 	if err != nil {
 		fmt.Println(err)
@@ -84,5 +86,6 @@ func globMatches(dirPath string) {
 }
 
 func main() {
-	globMatches("./examples")
+	//globMatches("./examples")
+	globMatches("../modular/packages/modular-scripts/react-scripts")
 }
