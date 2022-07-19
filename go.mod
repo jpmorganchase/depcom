@@ -1,4 +1,4 @@
-module depcom
+module github.com/cristiano-belloni/depcom
 
 go 1.16
 

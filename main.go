@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"depcom/parse"
+	"github.com/cristiano-belloni/depcom/parse"
 
 	"github.com/mattn/go-zglob"
 )
