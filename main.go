@@ -18,14 +18,12 @@ type DepcomResult struct {
 }
 
 func main() {
-	var file string
 	var directory string
 	var parsedImports *parse.Imports
 	var help bool
 
 	start := time.Now()
 
-	flag.StringVar(&file, "f", "", "File to parse")
 	flag.StringVar(&directory, "d", "", "Directory to glob")
 	flag.BoolVar(&help, "h", false, "Display help")
 	flag.Parse()
@@ -33,9 +31,6 @@ func main() {
 	if help {
 		flag.PrintDefaults()
 		os.Exit(1)
-	} else if file != "" {
-		parsedImports = parse.FromFiles([]string{file})
-
 	} else if directory != "" {
 		parsedImports = globMatches(directory)
 
