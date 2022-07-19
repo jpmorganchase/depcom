@@ -74,3 +74,6 @@ typings/
 
 # generated executable
 depcom
+
+# npm dist
+npm

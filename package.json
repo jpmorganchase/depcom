@@ -1,4 +1,34 @@
 {
   "name": "depcom",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@changesets/cli": "^2.23.2"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "bin": {
+    "depcom": "bin/depcom"
+  },
+  "optionalDependencies": {
+    "depcom-darwin-64": "0.0.0",
+    "depcom-darwin-arm64": "0.0.0",
+    "depcom-freebsd-64": "0.0.0",
+    "depcom-freebsd-arm64": "0.0.0",
+    "depcom-linux-32": "0.0.0",
+    "depcom-linux-64": "0.0.0",
+    "depcom-linux-arm": "0.0.0",
+    "depcom-linux-arm64": "0.0.0",
+    "depcom-linux-mips64le": "0.0.0",
+    "depcom-linux-ppc64le": "0.0.0",
+    "depcom-linux-riscv64": "0.0.0",
+    "depcom-linux-s390x": "0.0.0",
+    "depcom-netbsd-64": "0.0.0",
+    "depcom-openbsd-64": "0.0.0",
+    "depcom-sunos-64": "0.0.0",
+    "depcom-windows-32": "0.0.0",
+    "depcom-windows-64": "0.0.0",
+    "depcom-windows-arm64": "0.0.0"
+  }
 }
