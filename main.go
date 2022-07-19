@@ -27,16 +27,21 @@ func main() {
 	flag.StringVar(&directory, "d", "", "Directory to glob")
 	flag.BoolVar(&help, "h", false, "Display help")
 	flag.Parse()
+	tail := flag.Args()
 
 	if help {
 		flag.PrintDefaults()
 		os.Exit(1)
-	} else if directory != "" {
+	}
+	if directory != "" {
 		parsedImports = globMatches(directory)
 
-	} else {
-		tail := flag.Args()
+	} else if len(tail) > 0 {
 		parsedImports = parse.FromFiles(tail)
+	} else {
+		fmt.Println("No arguments specified, showing help.")
+		flag.PrintDefaults()
+		os.Exit(1)
 	}
 
 	elapsed := time.Since(start)
@@ -51,6 +56,9 @@ func globMatches(dirPath string) *parse.Imports {
 
 	if err != nil {
 		return &parse.Imports{Logs: parse.LogMap{Err: []string{fmt.Sprintf("Error globbing: %s. Error message is: %s", globExpression, err.Error())}}}
+	} else if len(matches) == 0 {
+		return &parse.Imports{Logs: parse.LogMap{Err: []string{fmt.Sprintf("No matches found globbing: %s", globExpression)}}}
+
 	} else {
 		return parse.FromFiles(matches)
 	}
