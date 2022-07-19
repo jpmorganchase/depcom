@@ -22,6 +22,7 @@ type Imports struct {
 func FromFiles(filenames []string) *Imports {
 	nameRegex, _ := regexp.Compile(`^(@[a-z0-9-~][a-z0-9-._~]*)?\/?([a-z0-9-~][a-z0-9-._~]*)`)
 	maxGoroutines := 16
+	// Throttle goroutines to maxGoroutines simultaneously running
 	guard := make(chan struct{}, maxGoroutines)
 	outChannel := make(chan *Imports, maxGoroutines)
 	importSet := make(map[string]bool)
@@ -45,13 +46,13 @@ func FromFiles(filenames []string) *Imports {
 			}
 
 		case fileImports := <-outChannel:
-			// Update the set of imports
+			// Update import set
 			for _, fileImport := range fileImports.ImportArray {
 				moduleName := nameRegex.FindString(fileImport)
-				// fmt.Printf("import name: %s | regex result: %s\n", fileImport, moduleName)
+				// Get the module name from the import (retain scope, exclude module subpaths)
 				importSet[moduleName] = true
 			}
-			// Update the set of logs
+			// Update log arrays
 			parsedImports.Logs.Debug = append(parsedImports.Logs.Debug, fileImports.Logs.Debug...)
 			parsedImports.Logs.Warning = append(parsedImports.Logs.Warning, fileImports.Logs.Warning...)
 			parsedImports.Logs.Err = append(parsedImports.Logs.Err, fileImports.Logs.Err...)
@@ -96,15 +97,15 @@ func FromFile(filename string) *Imports {
 	}
 
 	if ext == ".css" {
-		importMap = fromCSS(&log, &sourceFile)
+		importMap = FromCSS(&log, &sourceFile)
 	} else {
-		importMap = fromECMA(&log, &sourceFile, ext)
+		importMap = FromECMA(&log, &sourceFile, ext)
 
 	}
 	return &Imports{importMap, logMap, 1}
 }
 
-func fromCSS(log *logger.Log, sourceFile *logger.Source) []string {
+func FromCSS(log *logger.Log, sourceFile *logger.Source) []string {
 	var importMap []string
 
 	ast := css_parser.Parse(*log, *sourceFile, css_parser.Options{})
@@ -117,7 +118,7 @@ func fromCSS(log *logger.Log, sourceFile *logger.Source) []string {
 	return importMap
 }
 
-func fromECMA(log *logger.Log, sourceFile *logger.Source, ext string) []string {
+func FromECMA(log *logger.Log, sourceFile *logger.Source, ext string) []string {
 	var importMap []string
 
 	options := config.Options{Mode: config.ModeBundle}

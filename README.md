@@ -49,3 +49,7 @@ The `"/**/*.{tsx,jsx,mjs,cjs,ts,js,css}"` glob pattern will be appended to the s
 ### Example
 
 `json {"Time":"15.961751ms","ImportArray":["rollup-plugin-esbuild","jest-config","react-native-web",...],"Logs":{"Verbose":null,"Debug":["../modular/packages/modular-scripts/src/check/index.ts: This \"import\" expression will not be bundled because the argument is not a string literal\n","../modular/packages/modular-scripts/src/esbuild-scripts/start/index.ts: This call to \"require\" will not be bundled because the argument is not a string literal\n"],"Info":null,"Err":null,"Warning":null},"FileCount":119}`
+
+## Tests
+
+`go test ./...`
