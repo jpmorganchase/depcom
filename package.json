@@ -5,8 +5,9 @@
   "dependencies": {
     "@changesets/cli": "^2.23.2"
   },
+  "repository": "https://github.com/cristiano-belloni/depcom",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "bin": {
     "depcom": "bin/depcom"
