@@ -140,6 +140,7 @@ function main() {
       const baseManifest = require(path.join(__dirname, "../package.json"));
       // build(target, goos, goarch, extension);
       generateManifest(target, os, cpu, baseManifest);
+      generateMainManifest(baseManifest);
     }
   );
 }
@@ -160,6 +161,15 @@ function generateManifest(target, os, cpu, baseManifest) {
   fs.writeFileSync(
     path.join(__dirname, "../npm/", target, "package.json"),
     JSON.stringify(newManifest, null, 2)
+  );
+}
+
+function generateMainManifest(baseManifest) {
+  const mainPath = path.join(__dirname, "../npm/depcom/");
+  fs.mkdirSync(mainPath, { recursive: true });
+  fs.writeFileSync(
+    path.join(mainPath, "package.json"),
+    JSON.stringify(baseManifest, null, 2)
   );
 }
 
