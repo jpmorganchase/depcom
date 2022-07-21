@@ -1,0 +1,131 @@
+[
+  {
+    "platform": "win32",
+    "arch": "arm64",
+    "endianness": "LE",
+    "goos": "windows",
+    "goarch": "arm64",
+    "extension": ".exe"
+  },
+  {
+    "platform": "win32",
+    "arch": "ia32",
+    "goos": "windows",
+    "goarch": "386",
+    "endianness": "LE",
+    "extension": ".exe"
+  },
+  {
+    "platform": "win32",
+    "arch": "x64",
+    "goos": "windows",
+    "goarch": "amd64",
+    "endianness": "LE",
+    "extension": ".exe"
+  },
+  {
+    "platform": "darwin",
+    "arch": "arm64",
+    "goos": "darwin",
+    "goarch": "arm64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "darwin",
+    "arch": "x64",
+    "goos": "darwin",
+    "goarch": "amd64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "freebsd",
+    "arch": "arm64",
+    "goos": "freebsd",
+    "goarch": "arm64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "freebsd",
+    "arch": "x64",
+    "goos": "freebsd",
+    "goarch": "amd64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "arm",
+    "goos": "linux",
+    "goarch": "arm",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "arm64",
+    "goos": "linux",
+    "goarch": "arm64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "ia32",
+    "goos": "linux",
+    "goarch": "386",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "mips64el",
+    "goos": "linux",
+    "goarch": "mips64le",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "ppc64",
+    "goos": "linux",
+    "goarch": "ppc64le",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "riscv64",
+    "goos": "linux",
+    "goarch": "riscv64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "linux",
+    "arch": "s390x",
+    "goos": "linux",
+    "goarch": "s390x",
+    "endianness": "BE"
+  },
+  {
+    "platform": "linux",
+    "arch": "x64",
+    "goos": "linux",
+    "goarch": "amd64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "netbsd",
+    "arch": "x64",
+    "goos": "netbsd",
+    "goarch": "amd64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "openbsd",
+    "arch": "x64",
+    "goos": "openbsd",
+    "goarch": "amd64",
+    "endianness": "LE"
+  },
+  {
+    "platform": "sunos",
+    "arch": "x64",
+    "goos": "illumos",
+    "goarch": "amd64",
+    "endianness": "LE"
+  }
+]
