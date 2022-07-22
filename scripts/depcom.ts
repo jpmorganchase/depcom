@@ -4,13 +4,13 @@ import { execFile } from "node:child_process";
 interface AnalyzedDependencies {
   Time: string;
   ImportArray: string[];
+  FileCount: number;
   Logs: {
     Verbose: string[] | null;
     Debug: string[] | null;
     Info: string[] | null;
     Err: string[] | null;
     Warning: string[] | null;
-    FileCount: number;
   };
 }
 
