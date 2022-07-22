@@ -35,7 +35,11 @@ const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
 
 `go build`
 
-#### Glob files
+## Tests
+
+`go test ./...`
+
+#### Arguments: match files
 
 - `-d` Set a base directory (default: `./`)
 - `-a` Select multiple files using a [glob pattern](https://github.com/mattn/go-zglob), starting from the base directory (default: `**/*.{tsx,jsx,mjs,cjs,ts,js,css}`)
@@ -57,7 +61,7 @@ Target files will be matched by evaluating the glob patterns separately, then ca
 
 `./depcom`
 
-#### Analyze multiple files (variadic usage)
+#### Arguments: variadic usage
 
 `./depcom ../path/to/directory/file1.js ../another/path/to/directory/file1.js`
 
@@ -65,7 +69,7 @@ Target files will be matched by evaluating the glob patterns separately, then ca
 
 `./depcom -h`
 
-### Supported import statements
+## Supported import statements
 
 - CJS [`require`](https://nodejs.org/api/modules.html#requireid) and [`require.resolve`](https://nodejs.org/api/modules.html#requireresolverequest-options), if the argument is a string literal.
 - ESM `import` [statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import). The latter, commonly known as dynamic import, is supported only if the argument is a string literal.
@@ -79,19 +83,15 @@ Target files will be matched by evaluating the glob patterns separately, then ca
 - `.tsx` - Typescript files with React JSX code. Please note that a file with extension `.ts` containing JSX code will not be parsed correctly and will terminate parsing at the first JSX expression. This will emit an error in the logs but won't interrupt parsing of the remaining files.
 - `.css` - CSS files
 
-### Output
+## Output
 
-#### Format
+### Format
 
 - `Time` - Time elapsed parsing
 - `Logs` - Array of logs, grouped by log level
 - `ImportArray` - An array of all the unique dependencies extracted from the files. No subpaths.
 - `FileCount` - The number of files processed
 
-#### Example
+### Example
 
 `json {"Time":"15.961751ms","ImportArray":["rollup-plugin-esbuild","jest-config","react-native-web",...],"Logs":{"Verbose":null,"Debug":["../modular/packages/modular-scripts/src/check/index.ts: This \"import\" expression will not be bundled because the argument is not a string literal\n","../modular/packages/modular-scripts/src/esbuild-scripts/start/index.ts: This call to \"require\" will not be bundled because the argument is not a string literal\n"],"Info":null,"Err":null,"Warning":null},"FileCount":119}`
-
-### Tests
-
-`go test ./...`
