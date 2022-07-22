@@ -15,7 +15,17 @@ or
 
 ### Usage
 
-TODO:
+```ts
+import { analyzeRuntimeDependencies } from "depcom";
+
+const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
+  path: "path/to/package",
+  options: {
+    match: "**/*.{tsx,jsx,mjs,cjs,ts,js,css}",
+    exclude: ["node_modules/**/*"],
+  },
+});
+```
 
 ## CLI
 
