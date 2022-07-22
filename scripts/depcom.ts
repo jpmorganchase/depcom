@@ -29,19 +29,27 @@ const platformBinPath = require.resolve(
   `depcom-${platform}-${arch}/bin/depcom${arch === "win32" ? ".exe" : ""}`
 );
 
-console.log("Successfully resolved: ", platformBinPath);
-
 export function analyzeRuntimeDependencies({
   path,
   options: { match, exclude },
 }: AnalyzeRuntimeDependenciesParams): Promise<AnalyzedDependencies> {
+  let execArguments: string[] = [`-d ${path}`];
+  if (match) {
+    execArguments.push(`-a match`);
+  }
+  if (exclude) {
+    execArguments = execArguments.concat(
+      exclude.map((pattern) => `-x ${pattern}`)
+    );
+  }
+
   return new Promise((resolve) => {
-    execFile(platformBinPath, [`-d ${path}`], (error, stdout) => {
+    execFile(platformBinPath, execArguments, (error, stdout) => {
       if (error) {
         throw error;
       }
       try {
-        const result = JSON.parse(stdout);
+        const result = JSON.parse(stdout) as AnalyzedDependencies;
         resolve(result);
       } catch (e) {
         throw new Error(`Can't parse depcom output:\n${stdout}`);

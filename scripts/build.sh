@@ -61,5 +61,7 @@ CGO_ENABLED=0 GOOS=illumos GOARCH=amd64 go build -ldflags="-s -w" -trimpath -o $
 echo "Generating package manifests"
 node $SCRIPT_DIR/generate-manifests.js
 
-cp $SCRIPT_DIR/depcom.js $SCRIPT_DIR/../npm/depcom/
+echo "Compiling to javascript"
+npx tsc --declaration --esModuleInterop  $SCRIPT_DIR/depcom.ts --outDir $SCRIPT_DIR/../npm/depcom/
+cp $SCRIPT_DIR/../README.md $SCRIPT_DIR/../LICENSE $SCRIPT_DIR/../npm/depcom/
 
