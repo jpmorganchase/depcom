@@ -39,7 +39,9 @@ const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
 
 `go test ./...`
 
-#### CLI Arguments: match files
+#### CLI Options
+
+##### Match files
 
 - `-d` Set a base directory (default: `./`)
 - `-a` Select multiple files using a [glob pattern](https://github.com/mattn/go-zglob), starting from the base directory (default: `**/*.{tsx,jsx,mjs,cjs,ts,js,css}`)
@@ -47,7 +49,7 @@ const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
 
 Target files will be matched by evaluating the glob patterns separately, then calculating the difference between the allowed matches and all the excluded ones.
 
-##### Examples
+###### Examples
 
 - Parse all javascript files in a package, excluding the `node_modules` directory (note the quotes, to avoid shell globbing):
 
@@ -61,7 +63,7 @@ Target files will be matched by evaluating the glob patterns separately, then ca
 
 `./depcom`
 
-#### CLI Arguments: variadic usage
+##### Variadic usage
 
 `./depcom ../path/to/directory/file1.js ../another/path/to/directory/file1.js`
 
