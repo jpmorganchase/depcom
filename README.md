@@ -35,11 +35,11 @@ const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
 
 `go build`
 
-## Tests
+#### Tests
 
 `go test ./...`
 
-#### Arguments: match files
+#### CLI Arguments: match files
 
 - `-d` Set a base directory (default: `./`)
 - `-a` Select multiple files using a [glob pattern](https://github.com/mattn/go-zglob), starting from the base directory (default: `**/*.{tsx,jsx,mjs,cjs,ts,js,css}`)
@@ -61,7 +61,7 @@ Target files will be matched by evaluating the glob patterns separately, then ca
 
 `./depcom`
 
-#### Arguments: variadic usage
+#### CLI Arguments: variadic usage
 
 `./depcom ../path/to/directory/file1.js ../another/path/to/directory/file1.js`
 
