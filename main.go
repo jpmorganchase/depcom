@@ -36,8 +36,6 @@ func main() {
 	var parsedImports *parse.Imports
 	var help bool
 
-	start := time.Now()
-
 	flag.StringVar(&directoryPath, "d", "./", "Base directory path")
 	flag.StringVar(&includePattern, "a", "/**/*.{tsx,jsx,mjs,cjs,ts,js,css}", "Glob pattern of files to analyze")
 	flag.Var(&excludePattern, "x", "Glob pattern of files to exclude from analysis")
@@ -46,6 +44,8 @@ func main() {
 	tail := flag.Args()
 
 	cleanBaseDirectory := path.Clean(directoryPath)
+
+	start := time.Now()
 
 	if help {
 		flag.PrintDefaults()

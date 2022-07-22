@@ -1,5 +1,5 @@
 import os from "os";
-import { execFile } from "node:child_process";
+import { exec } from "child_process";
 
 interface AnalyzedDependencies {
   Time: string;
@@ -33,18 +33,18 @@ export function analyzeRuntimeDependencies({
   path,
   options: { match, exclude },
 }: AnalyzeRuntimeDependenciesParams): Promise<AnalyzedDependencies> {
-  let execArguments: string[] = [`-d ${path}`];
+  let execArguments: string[] = [platformBinPath, `-d '${path}'`];
   if (match) {
-    execArguments.push(`-a match`);
+    execArguments.push(`-a '${match}'`);
   }
   if (exclude) {
     execArguments = execArguments.concat(
-      exclude.map((pattern) => `-x ${pattern}`)
+      exclude.map((pattern) => `-x '${pattern}'`)
     );
   }
 
   return new Promise((resolve) => {
-    execFile(platformBinPath, execArguments, (error, stdout) => {
+    exec(execArguments.join(" "), (error, stdout) => {
       if (error) {
         throw error;
       }

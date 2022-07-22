@@ -1,7 +1,7 @@
 # depcom
 
 A Go package that extracts imported dependencies from Javascript / Typescript / CSS source files.
-It uses heavy parallelization and [internal APIs](https://github.com/ije/esbuild-internal/) from the [Esbuild project](https://esbuild.github.io/) for blazing performance.
+It uses concurrency and [internal APIs](https://github.com/ije/esbuild-internal/) from the [Esbuild project](https://esbuild.github.io/) for blazing performance.
 
 ## NPM Package
 
@@ -73,9 +73,10 @@ Target files will be matched by evaluating the glob patterns separately, then ca
 
 ## Supported import statements
 
-- CJS [`require`](https://nodejs.org/api/modules.html#requireid) and [`require.resolve`](https://nodejs.org/api/modules.html#requireresolverequest-options), if the argument is a string literal.
+- CJS [`require`](https://nodejs.org/api/modules.html#requireid) and [`require.resolve`](https://nodejs.org/api/modules.html#requireresolverequest-options), if the argument is a string literal are supported.
 - ESM `import` [statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import). The latter, commonly known as dynamic import, is supported only if the argument is a string literal.
-- CSS [`@import` rule](https://developer.mozilla.org/en-US/docs/Web/API/CSSImportRule).
+- CSS [`@import` rule](https://developer.mozilla.org/en-US/docs/Web/API/CSSImportRule)s are supported.
+- Typescript `import type` statements [are not supported](https://esbuild.github.io/content-types/#no-type-system).
 
 ## Supported file extensions
 
