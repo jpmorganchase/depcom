@@ -134,6 +134,18 @@ func TestFromECMA(t *testing.T) {
 			importMap: []string{"react", "@scope/tsx-in-tsx/bar"},
 			log:       LogMap{},
 		},
+		{
+			name: "import type",
+			code: `
+			import type myType from "foo";
+			import bar from "bar"
+			const msg: myType = "Hello there";
+			console.log(msg);
+			`,
+			extension: ".ts",
+			importMap: []string{"bar"},
+			log:       LogMap{},
+		},
 	}
 
 	for _, tt := range tests {
