@@ -16,7 +16,7 @@ interface AnalyzedDependencies {
 
 interface AnalyzeRuntimeDependenciesParams {
   path: string;
-  options: {
+  options?: {
     match?: string;
     exclude?: string[];
   };
@@ -31,9 +31,11 @@ const platformBinPath = require.resolve(
 
 export function analyzeRuntimeDependencies({
   path,
-  options: { match, exclude },
+  options,
 }: AnalyzeRuntimeDependenciesParams): Promise<AnalyzedDependencies> {
   let execArguments: string[] = [platformBinPath, `-d '${path}'`];
+  const match = options?.match;
+  const exclude = options?.exclude;
   if (match) {
     execArguments.push(`-a '${match}'`);
   }
