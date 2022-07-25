@@ -26,7 +26,7 @@ const platform = os.platform();
 const arch = os.arch();
 
 const platformBinPath = require.resolve(
-  `depcom-${platform}-${arch}/bin/depcom${arch === "win32" ? ".exe" : ""}`
+  `depcom-${platform}-${arch}/bin/depcom${platform === "win32" ? ".exe" : ""}`
 );
 
 export function analyzeRuntimeDependencies({
