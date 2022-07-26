@@ -8,4 +8,4 @@ cd $SCRIPT_DIR/../npm
 find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && pwd && cat package.json" \;
 #
 
-# find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && pwd && npm publish --registry http://localhost:1/" \;
+find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && pwd && npm publish" \;
