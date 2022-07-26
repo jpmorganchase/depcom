@@ -1,5 +1,5 @@
 {
-  "name": "depcom",
+  "name": "@jpmorganchase/depcom",
   "version": "0.0.0",
   "license": "Apache-2.0",
   "devDependencies": {
@@ -10,6 +10,11 @@
   "repository": "https://github.com/cristiano-belloni/depcom",
   "engines": {
     "node": ">=14"
+  },
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "publish": "./scripts/publish.sh",
+    "test": "go test ./..."
   },
   "main": "depcom.js",
   "types": "depcom.d.ts"
