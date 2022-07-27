@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Initialize Go environment
+        uses: actions/setup-go@v3
+        with:
+          go-version: "1.18.3"
+
+      - name: Initialize Node.js environment
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '14.17.0'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install Go Dependencies
+        run: go install
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: npm run build && npm run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

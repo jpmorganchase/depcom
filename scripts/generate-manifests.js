@@ -1,4 +1,4 @@
-const { execSync } = require("node:child_process");
+const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const archMap = require("./architecture-map.json");
@@ -14,10 +14,11 @@ function main() {
 }
 
 function generateManifest(target, os, cpu, extension = "") {
+  const packageName = `@jpmorganchase/${target}`;
   const newManifest = {
-    name: target,
+    name: packageName,
     version: baseManifest.version,
-    description: `depcom - ${target} build`,
+    description: `${packageName} - ${target} build`,
     repository: baseManifest.repository,
     license: baseManifest.license,
     preferUnplugged: false,
@@ -38,7 +39,8 @@ function generateMainManifest() {
   fs.mkdirSync(mainPath, { recursive: true });
   const optionalDependencies = {};
   archMap.forEach(({ platform, arch }) => {
-    optionalDependencies[`depcom-${platform}-${arch}`] = baseManifest.version;
+    optionalDependencies[`@jpmorganchase/depcom-${platform}-${arch}`] =
+      baseManifest.version;
   });
   fs.writeFileSync(
     path.join(mainPath, "package.json"),
