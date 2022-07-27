@@ -8,7 +8,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/cristiano-belloni/depcom/parse"
+	"github.com/jpmorganchase/depcom/parse"
 
 	"github.com/mattn/go-zglob"
 )
