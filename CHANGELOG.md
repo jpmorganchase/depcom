@@ -1,5 +1,11 @@
 # @jpmorganchase/depcom
 
+## 0.0.2
+
+### Patch Changes
+
+- [#9](https://github.com/jpmorganchase/depcom/pull/9) [`6b2748a`](https://github.com/jpmorganchase/depcom/commit/6b2748ad114bf5d4da0979ee660e093ff24407e5) Thanks [@cristiano-belloni](https://github.com/cristiano-belloni)! - Correct scope in require.resolve
+
 ## 0.0.1
 
 ### Patch Changes
