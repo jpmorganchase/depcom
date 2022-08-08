@@ -19,5 +19,8 @@
     "test": "go test ./..."
   },
   "main": "depcom.js",
-  "types": "depcom.d.ts"
+  "types": "depcom.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
 }
