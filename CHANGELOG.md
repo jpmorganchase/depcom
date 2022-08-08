@@ -1,5 +1,11 @@
 # @jpmorganchase/depcom
 
+## 0.0.3
+
+### Patch Changes
+
+- [#11](https://github.com/jpmorganchase/depcom/pull/11) [`9b5d262`](https://github.com/jpmorganchase/depcom/commit/9b5d262a074231c3bda35014b8719349e184954a) Thanks [@cristiano-belloni](https://github.com/cristiano-belloni)! - Modify publish script
+
 ## 0.0.2
 
 ### Patch Changes
