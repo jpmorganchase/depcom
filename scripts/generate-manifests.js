@@ -26,6 +26,9 @@ function generateManifest(target, os, cpu, extension = "") {
     bin: `bin/depcom${extension}`,
     os: [os],
     cpu: [cpu],
+    publishConfig: {
+      access: "public",
+    },
   };
 
   fs.writeFileSync(
