@@ -1,5 +1,11 @@
 # @jpmorganchase/depcom
 
+## 0.0.4
+
+### Patch Changes
+
+- [#13](https://github.com/jpmorganchase/depcom/pull/13) [`9ca7f89`](https://github.com/jpmorganchase/depcom/commit/9ca7f89e0a0696dc146e6fbf36f493b894c9b5a1) Thanks [@cristiano-belloni](https://github.com/cristiano-belloni)! - Add publishConfig option
+
 ## 0.0.3
 
 ### Patch Changes
