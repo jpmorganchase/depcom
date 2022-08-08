@@ -15,6 +15,7 @@
   "scripts": {
     "build": "./scripts/build.sh",
     "publish": "./scripts/publish.sh",
+    "scripts-publish": "./scripts/build.sh && ./scripts/publish.sh ",
     "test": "go test ./..."
   },
   "main": "depcom.js",
