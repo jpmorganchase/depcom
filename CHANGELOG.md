@@ -1,5 +1,11 @@
 # @jpmorganchase/depcom
 
+## 0.0.5
+
+### Patch Changes
+
+- [#16](https://github.com/jpmorganchase/depcom/pull/16) [`2e40684`](https://github.com/jpmorganchase/depcom/commit/2e406849d9de4188b746b954a890cd2535b419a7) Thanks [@cristiano-belloni](https://github.com/cristiano-belloni)! - Add clearer logging
+
 ## 0.0.4
 
 ### Patch Changes
