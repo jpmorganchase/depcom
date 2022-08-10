@@ -7,16 +7,16 @@ It uses concurrency and [internal APIs](https://github.com/ije/esbuild-internal/
 
 ### Installation
 
-`npm install depcom --save`
+`npm install @jpmorganchase/depcom --save`
 
 or
 
-`yarn add depcom`
+`yarn add @jpmorganchase/depcom`
 
 ### Usage
 
 ```ts
-import { analyzeRuntimeDependencies } from "depcom";
+import { analyzeRuntimeDependencies } from "@jpmorganchase/depcom";
 
 const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
   path: "path/to/package",
