@@ -64,5 +64,7 @@ node $SCRIPT_DIR/generate-manifests.js
 
 echo "Compiling to javascript"
 npx tsc --declaration --esModuleInterop  $SCRIPT_DIR/depcom.ts --outDir $SCRIPT_DIR/../npm/depcom/
+
+echo "Copying readme and license"
 cp $SCRIPT_DIR/../README.md $SCRIPT_DIR/../LICENSE $SCRIPT_DIR/../npm/depcom/
 
