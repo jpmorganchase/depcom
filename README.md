@@ -18,7 +18,7 @@ or
 ```ts
 import { analyzeRuntimeDependencies } from "@jpmorganchase/depcom";
 
-const { ImportArray, Time, FileCount, Logs } = analyzeRuntimeDependencies({
+const { ImportArray, Time, FileCount, Logs } = await analyzeRuntimeDependencies({
   path: "path/to/package",
   options: {
     match: "**/*.{tsx,jsx,mjs,cjs,ts,js,css}",
